@@ -17,14 +17,14 @@ namespace BevGrafGyak
         float size = 200;
         bool gotcha;
         float dx, dy;
-        
+
         Brush brushSquare = new SolidBrush(Color.Red);
 
         float speedx = 1, speedy = 1;
 
         Random rng = new Random();
         int counter = 0;
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace BevGrafGyak
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
-            if (P.X <= e.X && e.X < P.X+size&&P.Y<=e.Y&&e.Y<P.Y+size)
+            if (P.X <= e.X && e.X < P.X + size && P.Y <= e.Y && e.Y < P.Y + size)
             {
                 gotcha = true;
 
@@ -47,9 +47,9 @@ namespace BevGrafGyak
                 dy = e.Y - P.Y;
 
                 counter++;
-                if (counter==5)
+                if (counter == 5)
                 {
-                    MessageBox.Show("nagyonjó xd","vagy nem");
+                    MessageBox.Show("nagyonjó xd", "vagy nem");
                     Application.Exit();
                 }
 
@@ -89,11 +89,11 @@ namespace BevGrafGyak
             P.X += speedx;
             P.Y += speedy;
 
-            if (P.X<0 || P.X>canvas.Width)
+            if (P.X < 0 || (P.X) + size > canvas.Width)
             {
                 speedx *= -1;
             }
-            if (P.Y<0||P.Y>canvas.Height)
+            if (P.Y < 0 || P.Y > canvas.Height)
             {
                 speedy *= -1;
             }
@@ -110,7 +110,7 @@ namespace BevGrafGyak
                 speedx = speedx < 0 ? speedx - 2 : speedx + 2;
                 speedy = speedy < 0 ? speedy - 2 : speedy + 2;
 
-                if (rng.NextDouble()>=0.5)
+                if (rng.NextDouble() >= 0.5)
                 {
                     speedx *= -1;
                 }
@@ -121,6 +121,8 @@ namespace BevGrafGyak
 
                 brushSquare = new SolidBrush(Color.FromArgb(rng.Next(256), rng.Next(256), rng.Next(256)));
             }
+
+            gotcha = false;
         }
     }
 }
