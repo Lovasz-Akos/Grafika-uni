@@ -38,6 +38,7 @@ namespace BevGrafGyak
 
                 dx = e.X - P.X;
                 dy = e.Y - P.Y;
+
             }
         }
 
@@ -48,6 +49,23 @@ namespace BevGrafGyak
                 P.X = e.X - dx;
                 P.Y = e.Y - dy;
 
+                if (P.X < 0)
+                {
+                    P.X = 0;
+                }
+                else if (P.X > canvas.Width - size)
+                {
+                    P.X = canvas.Width - size;
+                }
+
+                if (P.Y < 0)
+                {
+                    P.Y = 0;
+                }
+                else if (P.Y > canvas.Height - size)
+                {
+                    P.Y = canvas.Height - size;
+                }
                 canvas.Invalidate();
             }
         }
