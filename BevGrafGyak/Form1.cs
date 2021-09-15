@@ -17,7 +17,14 @@ namespace BevGrafGyak
         float size = 200;
         bool gotcha;
         float dx, dy;
+        
         Brush brushSquare = new SolidBrush(Color.Red);
+
+        float speedx = 1, speedy = 1;
+
+        Random rng = new Random();
+        int counter = 0;
+        
         public Form1()
         {
             InitializeComponent();
@@ -38,6 +45,13 @@ namespace BevGrafGyak
 
                 dx = e.X - P.X;
                 dy = e.Y - P.Y;
+
+                counter++;
+                if (counter==5)
+                {
+                    MessageBox.Show("nagyonjó xd","vagy nem");
+                    Application.Exit();
+                }
 
             }
         }
@@ -70,9 +84,43 @@ namespace BevGrafGyak
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            P.X += speedx;
+            P.Y += speedy;
+
+            if (P.X<0 || P.X>canvas.Width)
+            {
+                speedx *= -1;
+            }
+            if (P.Y<0||P.Y>canvas.Height)
+            {
+                speedy *= -1;
+            }
+
+            canvas.Invalidate();
+
+        }
+
         private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
-            gotcha = false;
+            if (gotcha)
+            {
+                size -= 10;
+                speedx = speedx < 0 ? speedx - 2 : speedx + 2;
+                speedy = speedy < 0 ? speedy - 2 : speedy + 2;
+
+                if (rng.NextDouble()>=0.5)
+                {
+                    speedx *= -1;
+                }
+                if (rng.NextDouble() >= 0.5)
+                {
+                    speedy *= -1;
+                }
+
+                brushSquare = new SolidBrush(Color.FromArgb(rng.Next(256), rng.Next(256), rng.Next(256)));
+            }
         }
     }
 }
