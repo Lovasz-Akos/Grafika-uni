@@ -20,7 +20,7 @@ namespace BevGrafGyak
 
         private void canvas_Paint(object sender, PaintEventArgs e)
         {
-            
+            g = e.Graphics;
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)

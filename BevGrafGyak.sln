@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BevGrafGyak", "BevGrafGyak\BevGrafGyak.csproj", "{B1E57468-295A-4F2B-BEFF-BE0E7F0317C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BevGrafGyakTemplate", "BevGrafGyak\BevGrafGyakTemplate.csproj", "{B1E57468-295A-4F2B-BEFF-BE0E7F0317C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

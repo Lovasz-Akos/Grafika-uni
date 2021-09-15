@@ -34,6 +34,7 @@
             // 
             // canvas
             // 
+            this.canvas.BackColor = System.Drawing.Color.White;
             this.canvas.Location = new System.Drawing.Point(12, 12);
             this.canvas.Name = "canvas";
             this.canvas.Size = new System.Drawing.Size(734, 551);
@@ -48,6 +49,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(922, 575);
             this.Controls.Add(this.canvas);
             this.Name = "Form1";
