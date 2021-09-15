@@ -14,8 +14,9 @@ namespace BevGrafGyak
     {
         Graphics g;
         PointF P = new PointF();
-        float size = 100;
+        float size = 200;
         bool gotcha;
+        float dx, dy;
         Brush brushSquare = new SolidBrush(Color.Red);
         public Form1()
         {
@@ -34,6 +35,9 @@ namespace BevGrafGyak
             if (P.X <= e.X && e.X < P.X+size&&P.Y<=e.Y&&e.Y<P.Y+size)
             {
                 gotcha = true;
+
+                dx = e.X - P.X;
+                dy = e.Y - P.Y;
             }
         }
 
@@ -41,8 +45,8 @@ namespace BevGrafGyak
         {
             if (gotcha)
             {
-                P.X = e.X;
-                P.Y = e.Y;
+                P.X = e.X - dx;
+                P.Y = e.Y - dy;
 
                 canvas.Invalidate();
             }
