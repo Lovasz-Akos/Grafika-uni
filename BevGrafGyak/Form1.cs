@@ -68,7 +68,7 @@ namespace BevGrafGyak
             #region Windows
 
 
-            for (int i = 1; i <= ((housePositionOffset + houseWidth)); i++)
+            for (int i = 1; (150 * i) <= housePositionOffset + houseWidth +windowSize; i++)
             {
                 if ((housePositionOffset + (150 * i) + windowSize) < housePositionOffset + houseWidth)
                 {
