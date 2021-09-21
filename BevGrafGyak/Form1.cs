@@ -17,9 +17,9 @@ namespace BevGrafGyak
         Pen penColorSys = new Pen(Color.Black);
         int grassHeight = 150;
 
-        int housePositionOffset = 200;
+        int housePositionOffset = 350;
         int houseHeight = 200;
-        int houseWidth = 300;
+        int houseWidth = 400;
 
         int roofHeight = 100;
 
