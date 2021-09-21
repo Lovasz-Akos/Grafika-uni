@@ -34,18 +34,25 @@ namespace BevGrafGyak
             g = e.Graphics;
 
             #region Sky
+
             g.FillRectangle(Brushes.LightSkyBlue, 0, 0, canvas.Width, canvas.Height);
+
             #endregion
 
             #region Grass
+
             g.FillRectangle(Brushes.LawnGreen, 0, canvas.Height - grassHeight, canvas.Width, grassHeight);
+
             #endregion
 
             #region House Base
+
             g.FillRectangle(Brushes.Firebrick, housePositionOffset, (canvas.Height - grassHeight) - houseHeight, houseWidth, houseHeight);
+            
             #endregion
 
             #region Roof
+
             Point roof1 = new Point(housePositionOffset, (canvas.Height - grassHeight) - houseHeight);
             Point roof2 = new Point(roof1.X + 50, roof1.Y - roofHeight);
             Point roof3 = new Point(roof2.X + houseWidth - 100, roof2.Y);
@@ -53,9 +60,14 @@ namespace BevGrafGyak
             Point roof5 = new Point(housePositionOffset + houseWidth, (canvas.Height - grassHeight) - houseHeight);
 
             g.FillPolygon(Brushes.Chocolate, new PointF[5] { roof1, roof2, roof3, roof4, roof5 });
+           
             #endregion
 
+            #region Windows
 
+
+
+            #endregion
 
 
             //g.DrawRectangle(Pens.Black, 100, 100, 150, 350);
