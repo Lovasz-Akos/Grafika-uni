@@ -115,11 +115,14 @@ namespace BevGrafGyak
             #endregion
 
             #region Leaves
+
+            int rngPosHeight, rngPosWidth, rngRadius;
+
             for (int i = 0; i < rng.Next(10, 40); i++)
             {
-                int rngPosHeight = rng.Next(100);
-                int rngPosWidth = rng.Next(10, 200);
-                int rngRadius = rng.Next(50, 150);
+                rngPosHeight = rng.Next(100);
+                rngPosWidth = rng.Next(10, 200);
+                rngRadius = rng.Next(50, 150);
 
                 g.FillEllipse(Brushes.SpringGreen,
                     treeOffset - 75 + rngPosHeight,
