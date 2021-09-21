@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.canvas = new System.Windows.Forms.PictureBox();
+            this.rngSpammer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,12 +46,23 @@
             this.canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
             this.canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
+            // rngSpammer
+            // 
+            this.rngSpammer.Location = new System.Drawing.Point(12, 12);
+            this.rngSpammer.Name = "rngSpammer";
+            this.rngSpammer.Size = new System.Drawing.Size(97, 41);
+            this.rngSpammer.TabIndex = 1;
+            this.rngSpammer.Text = "generate";
+            this.rngSpammer.UseVisualStyleBackColor = true;
+            this.rngSpammer.Click += new System.EventHandler(this.rngSpammer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(922, 575);
+            this.Controls.Add(this.rngSpammer);
             this.Controls.Add(this.canvas);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -62,6 +74,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox canvas;
+        private System.Windows.Forms.Button rngSpammer;
     }
 }
 

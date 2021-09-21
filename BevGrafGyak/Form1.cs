@@ -17,7 +17,7 @@ namespace BevGrafGyak
 
         Random rng = new Random();
 
-        int grassHeight = 150;
+        int grassHeight = 100;
 
         int housePositionOffset = 250;
         int houseHeight = 200;
@@ -34,6 +34,7 @@ namespace BevGrafGyak
         int treeOffset = 750;
         int treeWidth = 45;
         int treeHeight = 200;
+        int treeIter = 20;
 
         public Form1()
         {
@@ -94,7 +95,7 @@ namespace BevGrafGyak
             #region Door
 
             g.FillRectangle(Brushes.SandyBrown, housePositionOffset + doorOffset, (canvas.Height - grassHeight) - doorHeight, doorWidth, doorHeight);
-            g.FillEllipse(Brushes.Brown, housePositionOffset + doorOffset + doorWidth -15, (canvas.Height - grassHeight) - doorHeight / 2, 10,10);
+            g.FillEllipse(Brushes.Brown, housePositionOffset + doorOffset + doorWidth - 15, (canvas.Height - grassHeight) - doorHeight / 2, 10, 10);
 
             #endregion
 
@@ -103,10 +104,35 @@ namespace BevGrafGyak
             g.FillRectangle(Brushes.BlanchedAlmond, treeOffset, canvas.Height - grassHeight - treeHeight, treeWidth, treeHeight);
             for (int i = 0; i < rng.Next(50); i++)
             {
-                g.FillRectangle(Brushes.Black, treeOffset + rng.Next(treeWidth-5), canvas.Height - grassHeight - treeHeight + rng.Next(treeHeight), 5, 2);
+                g.FillRectangle(Brushes.Black, treeOffset + rng.Next(treeWidth - 5), canvas.Height - grassHeight - treeHeight + rng.Next(treeHeight), 5, 2);
             }
 
             #endregion
+
+            #region Leaves
+            for (int i = 0; i < treeIter; i++)
+            {
+                int rngPosHeight = rng.Next(100);
+                int rngPosWidth = rng.Next(10, 200);
+                int rngRadius = rng.Next(50, 150);
+
+                g.FillEllipse(Brushes.SpringGreen, 
+                    treeOffset - 75 + rngPosHeight, 
+                    canvas.Height - grassHeight - treeHeight - rngPosWidth,
+                    rngRadius,
+                    rngRadius);
+
+                g.DrawEllipse(new Pen(Color.Green, 3),
+                    treeOffset - 75 + rngPosHeight,
+                    canvas.Height - grassHeight - treeHeight - rngPosWidth,
+                    rngRadius,
+                    rngRadius);
+
+            }
+
+            #endregion
+
+
             /*
             gradient
 
@@ -134,6 +160,11 @@ namespace BevGrafGyak
         private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void rngSpammer_Click(object sender, EventArgs e)
+        {
+            canvas.Invalidate();
         }
     }
 }
