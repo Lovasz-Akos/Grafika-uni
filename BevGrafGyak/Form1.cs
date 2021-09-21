@@ -36,7 +36,6 @@ namespace BevGrafGyak
         int treeHeight = 200;
 
         int sunScale = 300;
-        int rayCount = 10;
 
         public Form1()
         {
@@ -137,11 +136,7 @@ namespace BevGrafGyak
             #region Sun
 
             g.FillEllipse(Brushes.Yellow, -sunScale / 2, -sunScale / 2, sunScale, sunScale);
-
-            for (int i = 0; i < rayCount; i++)
-            {
-                g.DrawLine(new Pen(Color.Yellow, 5), 0+i*50, 0+i*10, 100, 100);
-            }
+            g.DrawEllipse(new Pen(Color.Gold, 5), -sunScale / 2, -sunScale / 2, sunScale, sunScale);
 
             #endregion
 
