@@ -34,7 +34,6 @@ namespace BevGrafGyak
         int treeOffset = 750;
         int treeWidth = 45;
         int treeHeight = 200;
-        int treeIter = 20;
 
         public Form1()
         {
@@ -102,15 +101,15 @@ namespace BevGrafGyak
             #region Tree
 
             g.FillRectangle(Brushes.BlanchedAlmond, treeOffset, canvas.Height - grassHeight - treeHeight, treeWidth, treeHeight);
-            for (int i = 0; i < rng.Next(50); i++)
+            for (int i = 0; i < rng.Next(10,75); i++)
             {
-                g.FillRectangle(Brushes.Black, treeOffset + rng.Next(treeWidth - 5), canvas.Height - grassHeight - treeHeight + rng.Next(treeHeight), 5, 2);
+                g.FillRectangle(Brushes.Black, treeOffset + rng.Next(treeWidth - 5), canvas.Height - grassHeight - treeHeight + rng.Next(treeHeight), rng.Next(2,7), 2);
             }
 
             #endregion
 
             #region Leaves
-            for (int i = 0; i < treeIter; i++)
+            for (int i = 0; i < rng.Next(5,30); i++)
             {
                 int rngPosHeight = rng.Next(100);
                 int rngPosWidth = rng.Next(10, 200);
