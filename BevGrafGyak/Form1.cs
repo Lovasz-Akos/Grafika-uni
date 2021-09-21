@@ -55,6 +55,22 @@ namespace BevGrafGyak
 
             #endregion
 
+            #region Sun
+
+            g.FillEllipse(Brushes.Yellow, -sunScale / 2, -sunScale / 2, sunScale, sunScale);
+            g.DrawEllipse(new Pen(Color.Gold, 5), -sunScale / 2, -sunScale / 2, sunScale, sunScale);
+
+            #endregion
+
+            #region Clouds
+
+            for (int i = 0; i < rng.Next(2, 10); i++)
+            {
+                g.FillEllipse(Brushes.WhiteSmoke, rng.Next(canvas.Width), rng.Next(0, 20), rng.Next(150, 400), rng.Next(40, 80));
+            }
+
+            #endregion
+
             #region Grass Block
 
             g.FillRectangle(Brushes.Olive, 0, canvas.Height - grassHeight, canvas.Width, grassHeight);
@@ -140,13 +156,6 @@ namespace BevGrafGyak
 
             #endregion
 
-            #region Sun
-
-            g.FillEllipse(Brushes.Yellow, -sunScale / 2, -sunScale / 2, sunScale, sunScale);
-            g.DrawEllipse(new Pen(Color.Gold, 5), -sunScale / 2, -sunScale / 2, sunScale, sunScale);
-
-            #endregion
-
             #region Grass Blade Generation
 
             for (int i = 0; i < 10000; i++)
@@ -158,6 +167,7 @@ namespace BevGrafGyak
             }
 
             #endregion
+           
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
