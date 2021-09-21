@@ -17,13 +17,17 @@ namespace BevGrafGyak
         Pen penColorSys = new Pen(Color.Black);
         int grassHeight = 150;
 
-        int housePositionOffset = 350;
+        int housePositionOffset = 250;
         int houseHeight = 200;
-        int houseWidth = 500;
+        int houseWidth = 450;
 
         int roofHeight = 100;
 
         int windowSize = 100;
+
+        int doorWidth = 80;
+        int doorHeight = 150;
+        int doorOffset = 20;
 
         public Form1()
         {
@@ -68,7 +72,7 @@ namespace BevGrafGyak
             #region Windows
 
 
-            for (int i = 1; (150 * i) <= housePositionOffset + houseWidth +windowSize; i++)
+            for (int i = 1; (150 * i) <= housePositionOffset + houseWidth + windowSize; i++)
             {
                 if ((housePositionOffset + (150 * i) + windowSize) < housePositionOffset + houseWidth)
                 {
@@ -81,16 +85,16 @@ namespace BevGrafGyak
 
             #endregion
 
+            #region Door
 
-            //g.DrawRectangle(Pens.Black, 100, 100, 150, 350);
+            g.FillRectangle(Brushes.SandyBrown, housePositionOffset + doorOffset, (canvas.Height - grassHeight) - doorHeight, doorWidth, doorHeight);
+            g.FillEllipse(Brushes.Brown, housePositionOffset + doorOffset + doorWidth -15, (canvas.Height - grassHeight) - doorHeight / 2, 10,10);
 
-            /*g.FillEllipse(new SolidBrush(Color.GreenYellow), 200,200,150,150);
-            g.DrawEllipse(new Pen(Color.Black,10), 200, 200, 150, 150);
+            #endregion
 
-            PointF point = new PointF(400, 100);
-            float r = 50;
-            g.DrawEllipse(new Pen(Color.Salmon, 5), point.X - r, point.Y - r, 2 * r, 2 * r);
-            g.DrawRectangle(new Pen(Color.Salmon, 1), point.X, point.Y, 2,2);
+
+            /*
+            gradient
 
             PointF pointname = new PointF(450, 300);
             for (int i = 0; i < 250; i++)
