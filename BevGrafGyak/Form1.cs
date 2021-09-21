@@ -63,7 +63,7 @@ namespace BevGrafGyak
 
             #region House Base
 
-            g.FillRectangle(Brushes.Firebrick, housePositionOffset, (canvas.Height - grassHeight) - houseHeight, houseWidth, houseHeight);
+            g.FillRectangle(Brushes.LightGoldenrodYellow, housePositionOffset, (canvas.Height - grassHeight) - houseHeight, houseWidth, houseHeight);
 
             #endregion
 
@@ -105,6 +105,8 @@ namespace BevGrafGyak
             #region Tree
 
             g.FillRectangle(Brushes.BlanchedAlmond, treeOffset, canvas.Height - grassHeight - treeHeight, treeWidth, treeHeight);
+            g.DrawRectangle(new Pen(Color.Black, 2),treeOffset, canvas.Height - grassHeight - treeHeight, treeWidth, treeHeight);
+
             for (int i = 0; i < rng.Next(10, 75); i++)
             {
                 g.FillRectangle(Brushes.Black, treeOffset + rng.Next(treeWidth - 5), canvas.Height - grassHeight - treeHeight + rng.Next(treeHeight), rng.Next(2, 7), 2);
@@ -113,7 +115,7 @@ namespace BevGrafGyak
             #endregion
 
             #region Leaves
-            for (int i = 0; i < rng.Next(5, 30); i++)
+            for (int i = 0; i < rng.Next(10, 40); i++)
             {
                 int rngPosHeight = rng.Next(100);
                 int rngPosWidth = rng.Next(10, 200);
