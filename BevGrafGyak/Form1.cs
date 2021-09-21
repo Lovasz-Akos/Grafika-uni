@@ -15,6 +15,7 @@ namespace BevGrafGyak
         Graphics g;
         PointF center;
         Pen penColorSys = new Pen(Color.Black);
+        int grassHeight = 150;
 
         public Form1()
         {

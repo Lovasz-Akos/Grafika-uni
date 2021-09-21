@@ -1,4 +1,4 @@
-﻿namespace BevGrafGyak
+namespace BevGrafGyak
 {
     partial class Form1
     {
@@ -34,10 +34,10 @@
             // 
             // canvas
             // 
-            this.canvas.BackColor = System.Drawing.Color.DimGray;
+            this.canvas.BackColor = System.Drawing.Color.Transparent;
             this.canvas.Location = new System.Drawing.Point(12, 12);
             this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(734, 551);
+            this.canvas.Size = new System.Drawing.Size(898, 551);
             this.canvas.TabIndex = 0;
             this.canvas.TabStop = false;
             this.canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
