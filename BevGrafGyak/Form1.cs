@@ -21,7 +21,7 @@ namespace BevGrafGyak
 
         int housePositionOffset = 250;
         int houseHeight = 200;
-        int houseWidth = 450;
+        int houseWidth = 320;
 
         int roofHeight = 100;
 
@@ -31,13 +31,14 @@ namespace BevGrafGyak
         int doorHeight = 150;
         int doorOffset = 20;
 
-        int treeOffset = 750;
+        int treeOffset = 600;
         int treeWidth = 45;
         int treeHeight = 200;
 
         int sunScale = 300;
 
         int grassLength = 25;
+        int grassDensity = 10000;
 
         public Form1()
         {
@@ -158,7 +159,7 @@ namespace BevGrafGyak
 
             #region Grass Blade Generation
 
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < grassDensity; i++)
             {
                 PointF grassRoot = new PointF(rng.Next(0, canvas.Width), rng.Next(canvas.Height - grassHeight, canvas.Height));
                 g.DrawLine(new Pen(Color.Olive, 2), 
@@ -170,24 +171,95 @@ namespace BevGrafGyak
            
         }
 
-        private void canvas_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void canvas_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void canvas_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void rngSpammer_Click(object sender, EventArgs e)
         {
             canvas.Invalidate();
+        }
+
+        private void houseWidthBar_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void houseWidthBar_DragDrop(object sender, DragEventArgs e)
+        {
+            houseWidth = houseWidthslider.Value;
+            canvas.Invalidate();
+        }
+
+        private void houseWidthBar_ValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void houseWidthBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            houseWidth = houseWidthslider.Value;
+            
+            if (e.Type == ScrollEventType.EndScroll)
+            {
+                canvas.Invalidate();
+            }
+        }
+
+        private void roofHeightSlider_Scroll(object sender, ScrollEventArgs e)
+        {
+            roofHeight = roofHeightSlider.Value;
+
+            if (e.Type == ScrollEventType.EndScroll)
+            {
+                canvas.Invalidate();
+            }
+        }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            windowSize = windowSizeSlider.Value;
+
+            if (e.Type == ScrollEventType.EndScroll)
+            {
+                canvas.Invalidate();
+            }
+        }
+
+        private void treeHeightSlider_Scroll(object sender, ScrollEventArgs e)
+        {
+            treeHeight = treeHeightSlider.Value;
+
+            if (e.Type == ScrollEventType.EndScroll)
+            {
+                canvas.Invalidate();
+            }
+        }
+
+        private void treePositionSlider_Scroll(object sender, ScrollEventArgs e)
+        {
+            treeOffset= treePositionSlider.Value;
+
+            if (e.Type == ScrollEventType.EndScroll)
+            {
+                canvas.Invalidate();
+            }
+        }
+
+        private void housePositionSlider_Scroll(object sender, ScrollEventArgs e)
+        {
+            housePositionOffset = housePositionSlider.Value;
+
+            if (e.Type == ScrollEventType.EndScroll)
+            {
+                canvas.Invalidate();
+            }
+        }
+
+        private void grassDensitySlider_Scroll(object sender, ScrollEventArgs e)
+        {
+            grassDensity = grassDensitySlider.Value;
+
+            if (e.Type == ScrollEventType.EndScroll)
+            {
+                canvas.Invalidate();
+            }
         }
     }
 }
