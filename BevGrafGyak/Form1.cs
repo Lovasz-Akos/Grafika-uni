@@ -35,6 +35,9 @@ namespace BevGrafGyak
         int treeWidth = 45;
         int treeHeight = 200;
 
+        int sunScale = 300;
+        int rayCount = 10;
+
         public Form1()
         {
             InitializeComponent();
@@ -101,22 +104,22 @@ namespace BevGrafGyak
             #region Tree
 
             g.FillRectangle(Brushes.BlanchedAlmond, treeOffset, canvas.Height - grassHeight - treeHeight, treeWidth, treeHeight);
-            for (int i = 0; i < rng.Next(10,75); i++)
+            for (int i = 0; i < rng.Next(10, 75); i++)
             {
-                g.FillRectangle(Brushes.Black, treeOffset + rng.Next(treeWidth - 5), canvas.Height - grassHeight - treeHeight + rng.Next(treeHeight), rng.Next(2,7), 2);
+                g.FillRectangle(Brushes.Black, treeOffset + rng.Next(treeWidth - 5), canvas.Height - grassHeight - treeHeight + rng.Next(treeHeight), rng.Next(2, 7), 2);
             }
 
             #endregion
 
             #region Leaves
-            for (int i = 0; i < rng.Next(5,30); i++)
+            for (int i = 0; i < rng.Next(5, 30); i++)
             {
                 int rngPosHeight = rng.Next(100);
                 int rngPosWidth = rng.Next(10, 200);
                 int rngRadius = rng.Next(50, 150);
 
-                g.FillEllipse(Brushes.SpringGreen, 
-                    treeOffset - 75 + rngPosHeight, 
+                g.FillEllipse(Brushes.SpringGreen,
+                    treeOffset - 75 + rngPosHeight,
                     canvas.Height - grassHeight - treeHeight - rngPosWidth,
                     rngRadius,
                     rngRadius);
@@ -131,19 +134,17 @@ namespace BevGrafGyak
 
             #endregion
 
+            #region Sun
 
-            /*
-            gradient
+            g.FillEllipse(Brushes.Yellow, -sunScale / 2, -sunScale / 2, sunScale, sunScale);
 
-            PointF pointname = new PointF(450, 300);
-            for (int i = 0; i < 250; i++)
+            for (int i = 0; i < rayCount; i++)
             {
-                for (int j = 0; j < 250; j++)
-                {
-                    g.DrawRectangle(new Pen(Color.FromArgb(i, j, 0)), pointname.X + i, pointname.Y + j, 0.5f, 0.5f);
-                }
+                g.DrawLine(new Pen(Color.Yellow, 5), 0+i*50, 0+i*10, 100, 100);
             }
-            */
+
+            #endregion
+
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
