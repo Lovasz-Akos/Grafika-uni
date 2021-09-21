@@ -19,9 +19,11 @@ namespace BevGrafGyak
 
         int housePositionOffset = 350;
         int houseHeight = 200;
-        int houseWidth = 400;
+        int houseWidth = 500;
 
         int roofHeight = 100;
+
+        int windowSize = 100;
 
         public Form1()
         {
@@ -48,7 +50,7 @@ namespace BevGrafGyak
             #region House Base
 
             g.FillRectangle(Brushes.Firebrick, housePositionOffset, (canvas.Height - grassHeight) - houseHeight, houseWidth, houseHeight);
-            
+
             #endregion
 
             #region Roof
@@ -60,12 +62,22 @@ namespace BevGrafGyak
             Point roof5 = new Point(housePositionOffset + houseWidth, (canvas.Height - grassHeight) - houseHeight);
 
             g.FillPolygon(Brushes.Chocolate, new PointF[5] { roof1, roof2, roof3, roof4, roof5 });
-           
+
             #endregion
 
             #region Windows
 
 
+            for (int i = 1; i <= ((housePositionOffset + houseWidth)); i++)
+            {
+                if ((housePositionOffset + (150 * i) + windowSize) < housePositionOffset + houseWidth)
+                {
+                    g.FillRectangle(Brushes.Turquoise,
+                       (housePositionOffset + (150 * i)),
+                       (canvas.Height - grassHeight) - (houseHeight / 2) - windowSize / 2, windowSize, windowSize);
+                }
+
+            }
 
             #endregion
 
