@@ -37,6 +37,8 @@ namespace BevGrafGyak
 
         int sunScale = 300;
 
+        int grassLength = 25;
+
         public Form1()
         {
             InitializeComponent();
@@ -53,9 +55,9 @@ namespace BevGrafGyak
 
             #endregion
 
-            #region Grass
+            #region Grass Block
 
-            g.FillRectangle(Brushes.LawnGreen, 0, canvas.Height - grassHeight, canvas.Width, grassHeight);
+            g.FillRectangle(Brushes.Olive, 0, canvas.Height - grassHeight, canvas.Width, grassHeight);
 
             #endregion
 
@@ -140,6 +142,17 @@ namespace BevGrafGyak
 
             #endregion
 
+            #region Grass Blade Generation
+
+            for (int i = 0; i < 10000; i++)
+            {
+                PointF grassRoot = new PointF(rng.Next(0, canvas.Width), rng.Next(canvas.Height - grassHeight, canvas.Height));
+                g.DrawLine(new Pen(Color.Olive, 2), 
+                    grassRoot.X, grassRoot.Y, grassRoot.X + rng.Next(-grassLength, grassLength), 
+                    grassRoot.Y - rng.Next(-grassLength, grassLength));
+            }
+
+            #endregion
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
