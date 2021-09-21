@@ -48,9 +48,9 @@
             // 
             // rngSpammer
             // 
-            this.rngSpammer.Location = new System.Drawing.Point(12, 12);
+            this.rngSpammer.Location = new System.Drawing.Point(887, 550);
             this.rngSpammer.Name = "rngSpammer";
-            this.rngSpammer.Size = new System.Drawing.Size(97, 41);
+            this.rngSpammer.Size = new System.Drawing.Size(35, 25);
             this.rngSpammer.TabIndex = 1;
             this.rngSpammer.Text = "generate";
             this.rngSpammer.UseVisualStyleBackColor = true;
