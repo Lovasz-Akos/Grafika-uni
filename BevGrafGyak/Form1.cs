@@ -17,6 +17,7 @@ namespace BevGrafGyak
 
         Random rng = new Random();
 
+        #region Variables
         int grassHeight = 100;
 
         int housePositionOffset = 250;
@@ -39,6 +40,7 @@ namespace BevGrafGyak
 
         int grassLength = 25;
         int grassDensity = 10000;
+        #endregion
 
         public Form1()
         {
