@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,14 +26,16 @@ namespace BevGrafGyak
         {
             g = e.Graphics;
 
-            g.DrawLine(penColorSys, 0, center.Y, canvas.Width, center.Y);
 
-            g.DrawLine(penColorSys, center.X, 0, center.X, canvas.Height);
+            g.FillRectangle(Brushes.LightSkyBlue, 0, 0, canvas.Width, canvas.Height);
+            g.FillRectangle(Brushes.LawnGreen, 0, canvas.Height - grassHeight, canvas.Width, grassHeight);
 
-            g.FillRectangle(Brushes.YellowGreen, 100,100,150,350);
-            g.DrawRectangle(Pens.Black, 100, 100, 150, 350);
+            g.FillRectangle(Brushes.Firebrick, housePositionOffset, (canvas.Height-grassHeight)-houseHeight, houseWidth, houseHeight);
+           
+            
+            //g.DrawRectangle(Pens.Black, 100, 100, 150, 350);
 
-            g.FillEllipse(new SolidBrush(Color.GreenYellow), 200,200,150,150);
+            /*g.FillEllipse(new SolidBrush(Color.GreenYellow), 200,200,150,150);
             g.DrawEllipse(new Pen(Color.Black,10), 200, 200, 150, 150);
 
             PointF point = new PointF(400, 100);
@@ -49,7 +51,7 @@ namespace BevGrafGyak
                     g.DrawRectangle(new Pen(Color.FromArgb(i, j, 0)), pointname.X + i, pointname.Y + j, 0.5f, 0.5f);
                 }
             }
-
+            */
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
