@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +14,9 @@ namespace BevGrafGyak
     {
         Graphics g;
         PointF center;
-        Pen penColorSys = new Pen(Color.Black);
+
+        Random rng = new Random();
+
         int grassHeight = 150;
 
         int housePositionOffset = 250;
@@ -28,6 +30,10 @@ namespace BevGrafGyak
         int doorWidth = 80;
         int doorHeight = 150;
         int doorOffset = 20;
+
+        int treeOffset = 750;
+        int treeWidth = 45;
+        int treeHeight = 200;
 
         public Form1()
         {
@@ -92,7 +98,15 @@ namespace BevGrafGyak
 
             #endregion
 
+            #region Tree
 
+            g.FillRectangle(Brushes.BlanchedAlmond, treeOffset, canvas.Height - grassHeight - treeHeight, treeWidth, treeHeight);
+            for (int i = 0; i < rng.Next(50); i++)
+            {
+                g.FillRectangle(Brushes.Black, treeOffset + rng.Next(treeWidth-5), canvas.Height - grassHeight - treeHeight + rng.Next(treeHeight), 5, 2);
+            }
+
+            #endregion
             /*
             gradient
 
