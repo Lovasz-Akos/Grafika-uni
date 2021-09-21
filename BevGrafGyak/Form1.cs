@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +16,12 @@ namespace BevGrafGyak
         PointF center;
         Pen penColorSys = new Pen(Color.Black);
         int grassHeight = 150;
+
+        int housePositionOffset = 200;
+        int houseHeight = 200;
+        int houseWidth = 300;
+
+        int roofHeight = 100;
 
         public Form1()
         {

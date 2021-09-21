@@ -1,4 +1,4 @@
-namespace BevGrafGyak
+﻿namespace BevGrafGyak
 {
     partial class Form1
     {
