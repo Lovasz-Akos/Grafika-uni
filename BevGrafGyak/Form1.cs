@@ -173,15 +173,7 @@ namespace BevGrafGyak
            
         }
 
-        private void rngSpammer_Click(object sender, EventArgs e)
-        {
-            canvas.Invalidate();
-        }
-
-        private void houseWidthBar_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
+       
 
         private void houseWidthBar_DragDrop(object sender, DragEventArgs e)
         {
@@ -262,6 +254,11 @@ namespace BevGrafGyak
             {
                 canvas.Invalidate();
             }
+        }
+
+        private void randomiserButton_Click(object sender, EventArgs e)
+        { 
+            canvas.Invalidate();
         }
     }
 }
