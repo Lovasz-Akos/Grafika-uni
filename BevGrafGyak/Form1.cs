@@ -16,7 +16,7 @@ namespace BevGrafGyak
         Graphics g;
 
         PointF p1 = new PointF(100, 20);
-        PointF p2 = new PointF(300, 500);
+        PointF p2 = new PointF(200, 500);
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +26,9 @@ namespace BevGrafGyak
         {
             g = e.Graphics;
 
-            g.DrawLineDDA(Color.Red, Color.Blue, p1, p2);
+            //g.DrawLineDDA(Color.Red, Color.Blue, p1, p2);
+            g.DrawCircle(Pens.Black, p2, 100.0f);
+
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
