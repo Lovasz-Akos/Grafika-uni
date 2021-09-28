@@ -26,7 +26,7 @@ namespace BevGrafGyak
         {
             g = e.Graphics;
 
-            g.DrawLineDDA(Color.Red, Color.Blue, p1, p2);
+            g.DrawCircle(Pens.DarkRed, p2, 100f);
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
