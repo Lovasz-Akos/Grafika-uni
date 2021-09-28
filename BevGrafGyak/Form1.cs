@@ -17,16 +17,24 @@ namespace BevGrafGyak
 
         PointF p1 = new PointF(100, 20);
         PointF p2 = new PointF(300, 500);
+        PointF p3 = new Point(350, 25);
+
+        Color[] these = new Color[] { Color.Red, Color.Green };
+
         public Form1()
         {
             InitializeComponent();
         }
-
         private void canvas_Paint(object sender, PaintEventArgs e)
         {
             g = e.Graphics;
 
-            g.DrawCircle(Pens.DarkRed, p2, 100f);
+            //g.DrawPolygonDDA(Pens.Red, new PointF[] { p1, p2, p3 }, false);
+            g.DrawPolygonDDA(Pens.Red, new PointF[] { new Point(0, 0), new Point(300, 300) }, false);
+            g.DrawLineMidPoint(Pens.Gold, p1, p3);
+
+            //g.DrawPolygon(these, new PointF[] { p1, p2, p3 }, false);   <-- prob works but color[] doesn't?
+            g.DrawCircle(Pens.DarkRed, p2, 200f);
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
