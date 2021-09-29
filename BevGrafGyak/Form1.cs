@@ -15,13 +15,9 @@ namespace BevGrafGyak
     {
         Graphics g;
 
-        PointF p1 = new PointF(100, 100);
-        PointF p2 = new PointF(100, 300);
-        PointF p3 = new Point(300, 100);
-        PointF p4 = new Point(300, 300);
-
-        PointF p5 = new Point(0, 0);
-        PointF p6 = new Point(400, 700);
+        PointF p1 = new PointF(100, 20);
+        PointF p2 = new PointF(300, 500);
+        PointF p3 = new Point(350, 25);
 
         Color[] these = new Color[] { Color.Red, Color.Green };
 
@@ -34,15 +30,11 @@ namespace BevGrafGyak
             g = e.Graphics;
 
             //g.DrawPolygonDDA(Pens.Red, new PointF[] { p1, p2, p3 }, false);
-            //g.DrawPolygonDDA(Pens.Red, new PointF[] { new Point(0, 0), new Point(300, 300) }, false);
-            //g.DrawLineMidPoint(Pens.Gold, p1, p3);
+            g.DrawPolygonDDA(Pens.Red, new PointF[] { new Point(0, 0), new Point(300, 300) }, false);
+            g.DrawLineMidPoint(Pens.Gold, p1, p3);
 
             //g.DrawPolygon(these, new PointF[] { p1, p2, p3 }, false);   <-- prob works but color[] doesn't?
-            //g.DrawCircle(Pens.DarkRed, p2, 200f);
-
-            g.DrawLine(new Pen(Color.Red, 5), p5, p6);
-            g.DrawRectangle(new Pen(Color.BlueViolet, 5), 100, 100, 250, 300);
-            g.Clip(new Pen(Color.YellowGreen, 5), new Rectangle(100, 100, 250, 300), p5, p6);
+            g.DrawCircle(Pens.DarkRed, p2, 200f);
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
