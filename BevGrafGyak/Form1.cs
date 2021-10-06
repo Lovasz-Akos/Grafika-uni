@@ -53,6 +53,8 @@ namespace BevGrafGyak
                     break;
 
                 case MouseButtons.Right:
+                    bmp.FillEdgeFlag(Color.Red, Color.Yellow);
+                    canvas.Invalidate();
                     break;
 
                 case MouseButtons.Middle:
