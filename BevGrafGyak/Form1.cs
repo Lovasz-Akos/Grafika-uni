@@ -53,7 +53,7 @@ namespace BevGrafGyak
                     break;
 
                 case MouseButtons.Right:
-                    bmp.FillRecursiveFourway(Color.Red, Color.Yellow, e.X, e.Y);
+                    bmp.FillStackFourway(canvas.BackColor, Color.Yellow, e.X, e.Y);
                     canvas.Invalidate();
                     break;
 
