@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.canvas = new System.Windows.Forms.PictureBox();
+            this.tileLister = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,12 +46,23 @@
             this.canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
             this.canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
+            // tileLister
+            // 
+            this.tileLister.Font = new System.Drawing.Font("CaskaydiaCove NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileLister.FormattingEnabled = true;
+            this.tileLister.ItemHeight = 21;
+            this.tileLister.Location = new System.Drawing.Point(752, 12);
+            this.tileLister.Name = "tileLister";
+            this.tileLister.Size = new System.Drawing.Size(358, 550);
+            this.tileLister.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(768, 575);
+            this.ClientSize = new System.Drawing.Size(1122, 575);
+            this.Controls.Add(this.tileLister);
             this.Controls.Add(this.canvas);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -62,6 +74,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox canvas;
+        private System.Windows.Forms.ListBox tileLister;
     }
 }
 

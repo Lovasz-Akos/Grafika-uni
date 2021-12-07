@@ -30,28 +30,59 @@ namespace BevGrafGyak
         private void canvas_Paint(object sender, PaintEventArgs e)
         {
             tiles = new List<Rectangle>();
+            
+            createTileGridStruct();
+            fillListboxWithTiles();
 
+            g = e.Graphics;
+
+            drawTileGrid();
+
+        }
+
+        private void createTileGridStruct()
+        {
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    tiles.Add(new Rectangle(tileGridStartX+(j*100)+(j*10), tileGridStartY+(i*100)+(i*10), tileSize, tileSize));
+                    tiles.Add(new Rectangle(tileGridStartX + (j * 100) + (j * 10), tileGridStartY + (i * 100) + (i * 10), tileSize, tileSize));
                 }
             }
+        }
 
-            g = e.Graphics;
+        private void fillListboxWithTiles()
+        {
+            for (int i = 0; i < tiles.Count(); i++)
+            {
+                tileLister.Items.Add("id:" + i + tiles[i].ToString());
+            }
+        }
+
+        private void drawTileGrid()
+        {
             g.DrawRectangles(pen, tiles.ToArray());
-           
+
             foreach (var item in tiles)
             {
                 g.FillRectangle(Brushes.Gray, item);
             }
-            
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
+            findClickedTile(e);
+        }
 
+        private void findClickedTile(MouseEventArgs e)
+        {
+            foreach (var item in tiles)
+            {
+                if (((e.Location.X > item.X) && (e.Location.X < item.X + tileSize)) && (e.Location.Y > item.Y) && (e.Location.Y < item.Y + tileSize))
+                {
+                    MessageBox.Show("clikced on tile with these coors: " + item.ToString());
+                }
+            }
         }
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
