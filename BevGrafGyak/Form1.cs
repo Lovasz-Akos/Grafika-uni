@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -79,7 +79,6 @@ namespace BevGrafGyak
             int i;
             for (i = 0; i < tiles.Count(); i++)
             {
-                tileLister.Items.Add("id:" + i + tiles[i].ToString());
                 if (((e.Location.X > tiles[i].X) && (e.Location.X < tiles[i].X + tileSize)) && (e.Location.Y > tiles[i].Y) && (e.Location.Y < tiles[i].Y + tileSize))
                 {
                     MessageBox.Show("clikced on tile with these coors: " + tiles[i].ToString() + " with ID: " + i);
