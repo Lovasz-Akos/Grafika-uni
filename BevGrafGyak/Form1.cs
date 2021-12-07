@@ -71,18 +71,22 @@ namespace BevGrafGyak
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
-            findClickedTile(e);
+            int xd = findClickedTile(e);
         }
 
-        private void findClickedTile(MouseEventArgs e)
+        private int findClickedTile(MouseEventArgs e)
         {
-            foreach (var item in tiles)
+            int i;
+            for (i = 0; i <= tiles.Count(); i++)
             {
-                if (((e.Location.X > item.X) && (e.Location.X < item.X + tileSize)) && (e.Location.Y > item.Y) && (e.Location.Y < item.Y + tileSize))
+                tileLister.Items.Add("id:" + i + tiles[i].ToString());
+                if (((e.Location.X > tiles[i].X) && (e.Location.X < tiles[i].X + tileSize)) && (e.Location.Y > tiles[i].Y) && (e.Location.Y < tiles[i].Y + tileSize))
                 {
-                    MessageBox.Show("clikced on tile with these coors: " + item.ToString());
+                    MessageBox.Show("clikced on tile with these coors: " + tiles[i].ToString() + " with ID: " + i);
                 }
             }
+            
+            return i;
         }
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
