@@ -7,20 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GrafikaDLL;
 
 namespace BevGrafGyak
 {
     public partial class Form1 : Form
     {
         Graphics g;
+        Pen pen = new Pen(Color.Black, 5);
+        RectangleF[] rectangles = new RectangleF[] { 
+            new RectangleF(100,200,100,100), 
+            new RectangleF(200, 200, 100, 100),
+            new RectangleF(300,200,100,100),
+            new RectangleF(400,200,100,100) };
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void canvas_Paint(object sender, PaintEventArgs e)
         {
             g = e.Graphics;
+            g.DrawRectangles(pen, rectangles);
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
