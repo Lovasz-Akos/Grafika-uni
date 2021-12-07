@@ -15,37 +15,38 @@ namespace BevGrafGyak
     {
         Graphics g;
         Pen pen = new Pen(Color.Black, 5);
-        RectangleF[] rectangles = new RectangleF[] { 
-            new RectangleF(150,40,100,100), 
-            new RectangleF(260, 40, 100, 100),
-            new RectangleF(370,40,100,100),
-            new RectangleF(480,40,100,100),
+        int tileGridStartX = 150;
+        int tileGridStartY = 40;
 
-            new RectangleF(150,150,100,100),
-            new RectangleF(260,150, 100, 100),
-            new RectangleF(370,150,100,100),
-            new RectangleF(480,150,100,100),
+        int tileSize = 100;
 
-            new RectangleF(150,260,100,100),
-            new RectangleF(260,260, 100, 100),
-            new RectangleF(370,260,100,100),
-            new RectangleF(480,260,100,100),
+        List<Rectangle> tiles;
 
-            new RectangleF(150,370,100,100),
-            new RectangleF(260,370, 100, 100),
-            new RectangleF(370,370,100,100),
-            new RectangleF(480,370,100,100)
-        };
         public Form1()
         {
             InitializeComponent();
-            
         }
 
         private void canvas_Paint(object sender, PaintEventArgs e)
         {
+            tiles = new List<Rectangle>();
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    tiles.Add(new Rectangle(tileGridStartX+(j*100)+(j*10), tileGridStartY+(i*100)+(i*10), tileSize, tileSize));
+                }
+            }
+
             g = e.Graphics;
-            g.DrawRectangles(pen, rectangles);
+            g.DrawRectangles(pen, tiles.ToArray());
+           
+            foreach (var item in tiles)
+            {
+                g.FillRectangle(Brushes.Gray, item);
+            }
+            
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
