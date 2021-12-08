@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -26,10 +26,7 @@ namespace BevGrafGyak
 
         private void canvas_Paint(object sender, PaintEventArgs e)
         {
-            tiles = new Rectangle[4, 4];
             g = e.Graphics;
-
-            CreateTileGridStruct();
             DrawTileGrid(g);
             FillListboxWithTiles();
 
@@ -56,38 +53,24 @@ namespace BevGrafGyak
             }
         }
 
-        private void DeleteTile(int tileID_X, int tileID_Y)
-        {
-            try
-            {
-                tiles[tileID_X, tileID_Y] = new Rectangle(0, 0, 0, 0);
-
-            }
-            catch (Exception e)
-            {
-            }
-            canvas.Invalidate();
-        }
-
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
         }
 
-        private int GetClickedTileID(MouseEventArgs e)
+        private int[] GetClickedTileID(MouseEventArgs e)
         {
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    if (((e.Location.X > tiles[i,j].X) && (e.Location.X < tiles[i,j].X + tileSize)) && (e.Location.Y > tiles[i,j].Y) && (e.Location.Y < tiles[i,j].Y + tileSize))
+                    if (((e.Location.X > tiles[i, j].X) && (e.Location.X < tiles[i, j].X + tileSize)) && (e.Location.Y > tiles[i, j].Y) && (e.Location.Y < tiles[i, j].Y + tileSize))
                     {
-                        MessageBox.Show("clikced on tile with these coors: " + tiles[i,j].ToString() + " " + i);
-                        return i;
+                        return new int[] { i, j };
                     }
                 }
-                
+
             }
-            return -1;
+            return new int[] { -1, -1 };
         }
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
@@ -115,8 +98,19 @@ namespace BevGrafGyak
                 }
             }
         }
-                tileLister.Items.Add("id:" + i + tiles[i].ToString());
-            }
+
+        private void AddTile(int tileID_X, int tileID_Y)
+        {
+            tiles[tileID_X, tileID_Y] = new Rectangle(tileGridStartX + (tileID_Y * 100) + (tileID_Y * 10), tileGridStartY + (tileID_X * 100) + (tileID_X * 10), tileSize, tileSize);
+            canvas.Invalidate();
+        }
+
+        private void DeleteTile(int tileID_X, int tileID_Y)
+        {
+            tiles[tileID_X, tileID_Y] = new Rectangle(0, 0, 0, 0);
+            canvas.Invalidate();
+        }
+
         private void StartButton_Click(object sender, EventArgs e)
         {
             CreateTileGridStruct();
