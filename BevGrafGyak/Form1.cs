@@ -21,6 +21,7 @@ namespace BevGrafGyak
         public Form1()
         {
             InitializeComponent();
+            CreateTileGridStruct();
         }
 
         private void canvas_Paint(object sender, PaintEventArgs e)
