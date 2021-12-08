@@ -104,8 +104,16 @@ namespace BevGrafGyak
 
         private void FillListboxWithTiles()
         {
-            for (int i = 0; i < tiles.Length; i++)
+            tileLister.Items.Clear();
+
+            for (int i = 0; i < 4; i++)
             {
+                for (int j = 0; j < 4; j++)
+                {
+                    tileLister.Items.Add(tiles[i, j].ToString() + " " + i + " " + j);
+                }
+            }
+        }
                 tileLister.Items.Add("id:" + i + tiles[i].ToString());
             }
         }
