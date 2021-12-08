@@ -15,8 +15,8 @@ namespace BevGrafGyak
 
         int tileSize = 100;
 
-
         Rectangle[,] tiles = new Rectangle[4, 4];
+        String[] pictureTitles = new string[] { "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking" };
 
         public Form1()
         {
