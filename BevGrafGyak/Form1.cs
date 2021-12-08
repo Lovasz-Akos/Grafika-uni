@@ -117,6 +117,10 @@ namespace BevGrafGyak
         }
                 tileLister.Items.Add("id:" + i + tiles[i].ToString());
             }
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            CreateTileGridStruct();
+            canvas.Invalidate();
         }
     }
 }
