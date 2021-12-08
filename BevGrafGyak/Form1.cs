@@ -97,9 +97,9 @@ namespace BevGrafGyak
 
         private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
-            int tileID = GetClickedTileID(e);
-            //DeleteTile(tileID);
-            //canvas.Invalidate();
+            int[] idS = new int[2];
+            idS = GetClickedTileID(e);
+            DeleteTile(idS[0], idS[1]);
         }
 
 
