@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -107,7 +107,10 @@ namespace BevGrafGyak
 
         private void DeleteTile(int tileID_X, int tileID_Y)
         {
-            tiles[tileID_X, tileID_Y] = new Rectangle(0, 0, 0, 0);
+            if (!(tileID_X == -1 || tileID_Y == -1))
+            {
+                tiles[tileID_X, tileID_Y] = new Rectangle(0, 0, 0, 0);
+            }
             canvas.Invalidate();
         }
 
