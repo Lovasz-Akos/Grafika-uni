@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.canvas = new System.Windows.Forms.PictureBox();
             this.tileLister = new System.Windows.Forms.ListBox();
             this.StartButton = new System.Windows.Forms.Button();
@@ -64,7 +65,7 @@
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(155, 64);
             this.StartButton.TabIndex = 2;
-            this.StartButton.Text = "Start Game";
+            this.StartButton.Text = "New Game";
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
@@ -77,8 +78,9 @@
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.tileLister);
             this.Controls.Add(this.canvas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Nice Memory Game :)";
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.ResumeLayout(false);
 
