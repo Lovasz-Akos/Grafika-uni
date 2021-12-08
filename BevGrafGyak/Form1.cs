@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -103,6 +103,17 @@ namespace BevGrafGyak
         {
             tiles[tileID_X, tileID_Y] = new Rectangle(tileGridStartX + (tileID_Y * 100) + (tileID_Y * 10), tileGridStartY + (tileID_X * 100) + (tileID_X * 10), tileSize, tileSize);
             canvas.Invalidate();
+        }
+
+        private void ShowIMG(int tileID_X, int tileID_Y)
+        {
+            //TODO: show image and draw bounding box
+        }
+
+        private void HideIMG(int tileID_X, int tileID_Y)
+        {
+            //TODO: hide image
+            AddTile(tileID_X, tileID_Y);
         }
 
         private void DeleteTile(int tileID_X, int tileID_Y)
