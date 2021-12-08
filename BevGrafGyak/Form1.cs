@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -16,9 +16,8 @@ namespace BevGrafGyak
         int tileSize = 100;
 
 
-        Rectangle[,] tiles;
-        List<String> pictureTitles = new List<String>() { "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking" };
-        List<String> pictureAssignmentTable = new List<String>() { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+        Rectangle[,] tiles = new Rectangle[4, 4];
+
         public Form1()
         {
             InitializeComponent();
