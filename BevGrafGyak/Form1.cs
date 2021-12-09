@@ -216,6 +216,9 @@ namespace BevGrafGyak
         private void StartButton_Click(object sender, EventArgs e)
         {
             CreateTileGridStruct();
+            GeneratePictureGrid();
+            GeneratePictureTileGrid();
+
             rng = new Random();
             Shuffle(rng, pictures);
             canvas.Invalidate();
