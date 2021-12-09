@@ -1,8 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BevGrafGyak
@@ -20,8 +22,9 @@ namespace BevGrafGyak
         Rectangle[,] pictureTiles = new Rectangle[4, 4];
 
         String[,] pictures = new String[4, 4];
-
-        String[] pictureTitles = new String[] { "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking", "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking" };
+        String[] pictureTitles = new String[] { "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking",
+                                                "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking" };
+        //Please I beg you, find a better solution for this...
 
         Random rng;
         public Form1()
@@ -54,8 +57,6 @@ namespace BevGrafGyak
 
         private void GeneratePictureTileGrid()
         {
-            int k = 0;
-
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
@@ -66,6 +67,7 @@ namespace BevGrafGyak
             rng = new Random();
             Shuffle(rng, pictures);
         }
+
         private void GeneratePictureGrid()
         {
             int k = 0;
