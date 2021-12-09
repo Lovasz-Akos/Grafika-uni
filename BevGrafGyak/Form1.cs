@@ -13,8 +13,8 @@ namespace BevGrafGyak
     {
         Graphics g;
         Pen pen = new Pen(Color.Black, 5);
-        int tileGridStartX = 150;
-        int tileGridStartY = 40;
+        int tileGridStartX;
+        int tileGridStartY;
 
         int tileSize = 100;
         bool whiteSpace = false;
@@ -27,14 +27,16 @@ namespace BevGrafGyak
         int[] secondTile = new int[2];
 
         String[,] pictures = new String[4, 4];
-        String[] pictureTitles = new String[] { "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking",
-                                                "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking" };
-        //Please I beg you, find a better solution for this...
+        String[] pictureTitles = new String[] { "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking" };
 
         Random rng;
         public Form1()
         {
             InitializeComponent();
+
+            tileGridStartX = canvas.Left + 50;
+            tileGridStartY = canvas.Top;
+
             CreateTileGridStruct();
             GeneratePictureGrid();
             GeneratePictureTileGrid();
@@ -45,7 +47,18 @@ namespace BevGrafGyak
             g = e.Graphics;
             DrawAllPictures(g);
             DrawTileGrid(g);
-            FillListboxWithTiles();
+
+            /* START BUTTON FUNCTIONS
+              
+            CreateTileGridStruct();
+            GeneratePictureGrid();
+            GeneratePictureTileGrid();
+
+            rng = new Random();
+            Shuffle(rng, pictures);
+            canvas.Invalidate();
+
+            */
 
         }
 
@@ -77,12 +90,19 @@ namespace BevGrafGyak
         {
             int k = 0;
 
+
+
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
                     pictures[i, j] = pictureTitles[k];
                     k++;
+                    if (k == 8)
+                    {
+                        k = 0;
+                    }
+
                 }
             }
             rng = new Random();
@@ -156,7 +176,7 @@ namespace BevGrafGyak
                 {
                     HideIMG(idS[0], idS[1]);
                 }
-                
+
                 if (flippedCounter == 1)
                 {
                     firstTile = idS;
@@ -206,7 +226,7 @@ namespace BevGrafGyak
         {
 
             Task.Delay(1000).Wait();
-            
+
             if (pictures[tile1[0], tile1[1]] == pictures[tile2[0], tile2[1]])
             {
                 MatchFound(tile1, tile2);
@@ -216,19 +236,6 @@ namespace BevGrafGyak
                 HideIMG(tile1[0], tile1[1]);
                 HideIMG(tile2[0], tile2[1]);
                 flippedCounter = 0;
-            }
-        }
-
-        private void FillListboxWithTiles()
-        {
-            tileLister.Items.Clear();
-
-            for (int i = 0; i < 4; i++)
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    tileLister.Items.Add(tiles[i, j].ToString() + " " + i + " " + j);
-                }
             }
         }
 
@@ -253,7 +260,7 @@ namespace BevGrafGyak
 
         private void HideIMG(int tileID_X, int tileID_Y)
         {
-            
+
             AddTile(tileID_X, tileID_Y);
         }
 
@@ -271,7 +278,7 @@ namespace BevGrafGyak
             canvas.Invalidate();
         }
 
-        private void StartButton_Click(object sender, EventArgs e)
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateTileGridStruct();
             GeneratePictureGrid();
@@ -280,6 +287,28 @@ namespace BevGrafGyak
             rng = new Random();
             Shuffle(rng, pictures);
             canvas.Invalidate();
+        }
+
+        private void hideAllGreyBlocksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    DeleteTile(i, j, 0);
+                }
+            }
+        }
+
+        private void showAllGreyBlocksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    AddTile(i, j);
+                }
+            }
         }
     }
 }
