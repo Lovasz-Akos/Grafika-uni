@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -17,9 +17,14 @@ namespace BevGrafGyak
         int tileGridStartY = 40;
 
         int tileSize = 100;
+        bool whiteSpace = false;
+        int flippedCounter = 0;
 
         Rectangle[,] tiles = new Rectangle[4, 4];
         Rectangle[,] pictureTiles = new Rectangle[4, 4];
+
+        int[] firstTile = new int[2];
+        int[] secondTile = new int[2];
 
         String[,] pictures = new String[4, 4];
         String[] pictureTitles = new String[] { "calculator", "diamond", "fish", "hotdog", "orange", "pyramid", "sun", "viking",
@@ -130,6 +135,39 @@ namespace BevGrafGyak
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
+            int[] idS = GetClickedTileID(e);
+
+            if (idS[0] == -1)
+            {
+                whiteSpace = true;
+            }
+            else
+            {
+                whiteSpace = false;
+            }
+
+            if (!whiteSpace)
+            {
+                if (idS[2] == 0)
+                {
+                    ShowIMG(idS[0], idS[1]);
+                }
+                else if (idS[2] == 1)
+                {
+                    HideIMG(idS[0], idS[1]);
+                }
+                
+                if (flippedCounter == 1)
+                {
+                    firstTile = idS;
+                }
+                if (flippedCounter == 2)
+                {
+                    secondTile = idS;
+                    canvas.Invalidate();
+                    CheckMatches(firstTile, secondTile);
+                }
+            }
         }
 
         private int[] GetClickedTileID(MouseEventArgs e)
@@ -138,12 +176,14 @@ namespace BevGrafGyak
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    if (((e.Location.X > tiles[i, j].X) && (e.Location.X < tiles[i, j].X + tileSize)) && (e.Location.Y > tiles[i, j].Y) && (e.Location.Y < tiles[i, j].Y + tileSize))
+                    if ((e.Location.X > tiles[i, j].X) && (e.Location.X < tiles[i, j].X + tileSize) && (e.Location.Y > tiles[i, j].Y) && (e.Location.Y < tiles[i, j].Y + tileSize))
                     {
+                        flippedCounter++;
                         return new int[] { i, j, 0 };
                     }
-                    else if (((e.Location.X > pictureTiles[i, j].X) && (e.Location.X < pictureTiles[i, j].X + tileSize)) && ((e.Location.Y > pictureTiles[i, j].Y) && (e.Location.Y < pictureTiles[i, j].Y + tileSize)))
+                    else if ((e.Location.X > pictureTiles[i, j].X) && (e.Location.X < pictureTiles[i, j].X + tileSize) && ((e.Location.Y > pictureTiles[i, j].Y) && (e.Location.Y < pictureTiles[i, j].Y + tileSize)))
                     {
+                        flippedCounter--;
                         return new int[] { i, j, 1 };
                     }
                 }
@@ -159,19 +199,25 @@ namespace BevGrafGyak
 
         private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
-            int[] idS = new int[2];
-            idS = GetClickedTileID(e);
-            //MessageBox.Show(idS[0].ToString() + "  " + idS[1].ToString());
-            if (idS[2] == 0)
-            {
-                ShowIMG(idS[0], idS[1]);
-            }
-            else if (idS[2] == 1)
-            {
-                HideIMG(idS[0], idS[1]);
-            }
+
         }
 
+        private void CheckMatches(int[] tile1, int[] tile2)
+        {
+
+            Task.Delay(1000).Wait();
+            
+            if (pictures[tile1[0], tile1[1]] == pictures[tile2[0], tile2[1]])
+            {
+                MatchFound(tile1, tile2);
+            }
+            else
+            {
+                HideIMG(tile1[0], tile1[1]);
+                HideIMG(tile2[0], tile2[1]);
+                flippedCounter = 0;
+            }
+        }
 
         private void FillListboxWithTiles()
         {
@@ -194,21 +240,33 @@ namespace BevGrafGyak
 
         private void ShowIMG(int tileID_X, int tileID_Y)
         {
-            DeleteTile(tileID_X, tileID_Y);
-            canvas.Invalidate(true);
+            DeleteTile(tileID_X, tileID_Y, 0);
+        }
+
+        private void MatchFound(int[] tile1, int[] tile2)
+        {
+            DeleteTile(tile1[0], tile1[1], 1);
+            DeleteTile(tile2[0], tile2[1], 1);
+            flippedCounter = 0;
+
         }
 
         private void HideIMG(int tileID_X, int tileID_Y)
         {
-            //TODO: hide image
+            
             AddTile(tileID_X, tileID_Y);
         }
 
-        private void DeleteTile(int tileID_X, int tileID_Y)
+        private void DeleteTile(int tileID_X, int tileID_Y, int level)
         {
-            if (!(tileID_X == -1 || tileID_Y == -1))
+            if (level == 0)
             {
+                //MessageBox.Show("szurke blokk gone at: " + tiles[tileID_X, tileID_Y].ToString());
                 tiles[tileID_X, tileID_Y] = new Rectangle(0, 0, 0, 0);
+            }
+            if (level == 1)
+            {
+                pictureTiles[tileID_X, tileID_Y] = new Rectangle(0, 0, 0, 0);
             }
             canvas.Invalidate();
         }
