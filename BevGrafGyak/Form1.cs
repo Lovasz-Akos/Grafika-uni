@@ -48,18 +48,6 @@ namespace BevGrafGyak
             DrawAllPictures(g);
             DrawTileGrid(g);
 
-            /* START BUTTON FUNCTIONS
-              
-            CreateTileGridStruct();
-            GeneratePictureGrid();
-            GeneratePictureTileGrid();
-
-            rng = new Random();
-            Shuffle(rng, pictures);
-            canvas.Invalidate();
-
-            */
-
         }
 
         private void CreateTileGridStruct()
