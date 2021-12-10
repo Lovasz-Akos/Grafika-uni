@@ -36,6 +36,7 @@
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideAllGreyBlocksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAllGreyBlocksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scoreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,12 +56,13 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("CaskaydiaCove NF", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.debugToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(582, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(574, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,13 +71,13 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newGameToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
+            this.fileToolStripMenuItem.Text = "Game";
             // 
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
@@ -85,29 +87,42 @@
             this.hideAllGreyBlocksToolStripMenuItem,
             this.showAllGreyBlocksToolStripMenuItem});
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.debugToolStripMenuItem.Text = "Debug";
             // 
             // hideAllGreyBlocksToolStripMenuItem
             // 
             this.hideAllGreyBlocksToolStripMenuItem.Name = "hideAllGreyBlocksToolStripMenuItem";
-            this.hideAllGreyBlocksToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.hideAllGreyBlocksToolStripMenuItem.Size = new System.Drawing.Size(267, 24);
             this.hideAllGreyBlocksToolStripMenuItem.Text = "Hide All Grey Blocks";
             this.hideAllGreyBlocksToolStripMenuItem.Click += new System.EventHandler(this.hideAllGreyBlocksToolStripMenuItem_Click);
             // 
             // showAllGreyBlocksToolStripMenuItem
             // 
             this.showAllGreyBlocksToolStripMenuItem.Name = "showAllGreyBlocksToolStripMenuItem";
-            this.showAllGreyBlocksToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.showAllGreyBlocksToolStripMenuItem.Size = new System.Drawing.Size(267, 24);
             this.showAllGreyBlocksToolStripMenuItem.Text = "Show All Grey Blocks";
             this.showAllGreyBlocksToolStripMenuItem.Click += new System.EventHandler(this.showAllGreyBlocksToolStripMenuItem_Click);
+            // 
+            // scoreLabel
+            // 
+            this.scoreLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.BackColor = System.Drawing.Color.White;
+            this.scoreLabel.Font = new System.Drawing.Font("CaskaydiaCove NF", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Location = new System.Drawing.Point(488, 4);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(63, 20);
+            this.scoreLabel.TabIndex = 2;
+            this.scoreLabel.Text = "label1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(582, 551);
+            this.ClientSize = new System.Drawing.Size(574, 551);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.canvas);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -131,6 +146,7 @@
         private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideAllGreyBlocksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showAllGreyBlocksToolStripMenuItem;
+        private System.Windows.Forms.Label scoreLabel;
     }
 }
 
