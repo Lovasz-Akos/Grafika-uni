@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GrafikaDLL;
 
 namespace BevGrafGyak
 {
@@ -291,6 +292,7 @@ namespace BevGrafGyak
             GeneratePictureGrid();
             GeneratePictureTileGrid();
 
+            matchCounter = 0;
             rng = new Random();
             Shuffle(rng, pictures);
             canvas.Invalidate();
