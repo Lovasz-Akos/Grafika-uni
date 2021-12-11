@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GrafikaDLL;
 
-namespace BevGrafGyak
+namespace BevGrafGyak //Changes can be tracked on https://github.com/Lovasz-Akos/Grafika-uni/tree/beadando
 {
     public partial class Form1 : Form
     {
