@@ -70,7 +70,7 @@ namespace GrafikaAlap
             //g.DrawObjectBRepWithEdges(bunny, parallel, center);
 
             //g.DrawObjectBRepWithTriangles(suzanne, parallel, (-1) * v, center);
-            g.FillObjectBRepWithTriangles(suzanne, parallel, (-1) * v, center);
+            g.FillObjectBRepWithTriangles(bunny, parallel, (-1) * v, center);
 
             //g.DrawBRepWithEdges(Pens.Blue, cube, transformation, parallel, center);
             //g.DrawBRepWithEdges(Pens.Red, suzanne, transformation, parallel, center);
